@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Challenges</title>
+</head>
+
+<body>
+    <script>
+        // Using the same function with multiple objects
+
+        var movie1;
+        var movie2;
+        var movie3;
+        var movie;
+        var showMovieInfo;
+
+        movie1 = {
+            title: "Inside Out",
+            actors: "Amy Poehler, Bill Hader",
+            directors: "Pete Doctor, Ronaldo Del Carmen"
+        };
+
+        movie2 = {
+            title: "Spectre",
+            actors: "Daniel Craig, Christoph Waltz",
+            directors: "Sam Mendes"
+        };
+
+        movie3 = {
+            title: "Star Wars: Episode VII - The Force Awakens",
+            actors: "Harrison Ford, Mark Hamill, Carrie Fisher",
+            directors: "J.J.Abrams"
+        };
+
+        showMovieInfo = function () {
+            console.log("Movie information for " + movie.title);
+            console.log("------------------------------");
+            console.log("Actors: " + movie.actors);
+            console.log("Directors: " + movie.directors);
+            console.log("------------------------------");
+        };
+
+        movie = movie1;
+        showMovieInfo();
+
+        movie = movie2;
+        showMovieInfo();
+
+        movie = movie3;
+        showMovieInfo();
+        //Answers
+        var question;
+        var question2;
+        var showQuestion;
+        var answer;
+
+        question={
+            ques: "How many colors are there in the Indian Flag?",
+            opt1: "One",
+            opt2: "Two",
+            opt3: "Three",
+            answer: "Three"
+        };
+        // question2 = {
+        //     ques: "Which planet is known as the Red Planet?",
+        //     options: ["Earth", "Mars", "Jupiter"],
+        //     answer: "Mars"
+        // };
+
+
+        showQuestion = function() {
+            console.log("The question is:"+question.ques);
+            console.log("Option1:"+question.opt1);
+            console.log("Option2:"+question.opt2);
+            console.log("Option3:"+question.opt3);
+            console.log("The answer is:"+question.answer)
+
+        }
+        showQuestion();
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Create an object to represent
+         *    a multiple choice quiz question.
+         *
+         * 2) Create two more quiz question objects.
+         *
+         * 3) Create a function to show
+         *    the question and answer options.
+         *
+         * 4) Use the same variable assignment technique
+         *    as above to display all three questions
+         *    on the console.
+         *
+         */
+    </script>
+</body>
+
+</html>

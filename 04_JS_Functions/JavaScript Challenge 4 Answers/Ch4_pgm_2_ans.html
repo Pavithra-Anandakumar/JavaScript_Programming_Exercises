@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Challenges</title>
+</head>
+
+<body>
+    <script>
+        // Displaying information from similar objects
+
+        var movie1;
+        var movie2;
+        var movie3;
+
+        movie1 = {
+            title: "Inside Out",
+            actors: "Amy Poehler, Bill Hader",
+            directors: "Pete Doctor, Ronaldo Del Carmen"
+        };
+
+        movie2 = {
+            title: "Spectre",
+            actors: "Daniel Craig, Christoph Waltz",
+            directors: "Sam Mendes"
+        };
+
+        movie3 = {
+            title: "Star Wars: Episode VII - The Force Awakens",
+            actors: "Harrison Ford, Mark Hamill, Carrie Fisher",
+            directors: "J.J.Abrams"
+        };
+
+        console.log("Movie information for " + movie1.title);
+        console.log("------------------------------");
+        console.log("Actors: " + movie1.actors);
+        console.log("Directors: " + movie1.directors);
+        console.log("------------------------------");
+
+        console.log("Movie information for " + movie2.title);
+        console.log("------------------------------");
+        console.log("Actors: " + movie2.actors);
+        console.log("Directors: " + movie2.directors);
+        console.log("------------------------------");
+
+        console.log("Movie information for " + movie3.title);
+        console.log("------------------------------");
+        console.log("Actors: " + movie3.actors);
+        console.log("Directors: " + movie3.directors);
+        console.log("------------------------------");
+        //Answer
+        var movie4
+        movie4 = {
+            title: "Titanic",
+            actors: "Kate Winslet, Leonardo DiCaprio",
+            directors: "James Cameron"
+        };
+        console.log("Movie information for " + movie4.title);
+        console.log("------------------------------");
+        console.log("Actors: " + movie4.actors);
+        console.log("Directors: " + movie4.directors);
+        console.log("------------------------------");
+
+        function displayMovieInfo(movie) {
+            console.log("Movie information for " + movie.title);
+            console.log("------------------------------");
+            console.log("Actors: " + movie.actors);
+            console.log("Directors: " + movie.directors);
+            console.log("------------------------------");
+            console.log("");
+        }
+
+        displayMovieInfo(movie1);
+        displayMovieInfo(movie2);
+        displayMovieInfo(movie3);
+        displayMovieInfo(movie4);
+
+
+        // Calendar Events
+        var event1, event2, event3;
+
+        event1 = {
+            title: "Meeting",
+            date: "2024-07-20",
+            time: "10:00 AM"
+        };
+
+        event2 = {
+            title: "Appointment",
+            date: "2024-07-22",
+            time: "2:00 PM"
+        };
+
+        event3 = {
+            title: "Conference",
+            date: "2024-07-25",
+            time: "9:00 AM"
+        };
+
+        function displayEventInfo(event) {
+            console.log("Event: " + event.title);
+            console.log("Date: " + event.date);
+            console.log("Time: " + event.time);
+            console.log("------------------------------");
+            console.log(""); // Space between events
+        }
+
+        displayEventInfo(event1);
+        displayEventInfo(event2);
+        displayEventInfo(event3);
+
+
+
+        /* Further Adventures
+         *
+         * 1) Add a fourth movie and display its info
+         *
+         * 2) All the movie info is in one big block on the console.
+         *    Change the code to space out the different movies.
+         *
+         * 3) Create objects to represent three calendar events
+         *
+         * 4) Display info from the three events on the console.
+         */
+    </script>
+
+</body>
+
+</html>
