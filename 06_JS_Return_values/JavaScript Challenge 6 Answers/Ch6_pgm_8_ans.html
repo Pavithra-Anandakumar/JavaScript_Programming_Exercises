@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Values</title>
+</head>
+
+<body>
+    <script>
+        // Getting strings for a player’s health and location
+
+        var getPlayerHealth;
+        var getPlayerPlace;
+
+        getPlayerHealth = function (playerName, playerHealth) {
+            return playerName + " has health " + playerHealth;
+        };
+
+        getPlayerPlace = function (playerName, playerPlace) {
+            return playerName + " is in " + playerPlace;
+        };
+
+        var showPlayerInfo = function (playerName, playerHealth, playerPlace) {
+            var healthInfo = getPlayerHealth(playerName, playerHealth);
+            var placeInfo = getPlayerPlace(playerName, playerPlace);
+            return healthInfo + "\n" + placeInfo;
+        };
+
+        console.log(showPlayerInfo("Kandra", 50, "The Dungeon of Doom"));
+        console.log(showPlayerInfo("Dax", 50, "The Bath"));
+
+
+
+        /* Further Adventures
+         *
+         * 1) Create a showPlayerInfo function with three
+         *    parameters, playerName, playerHealth and
+         *    playerPlace.
+         *
+         * 2) Call getPlayerHealth and getPlayerPlace
+         *    from your new showPlayerInfo function.
+         *
+         *    e.g. showPlayerInfo("Dax", 50, "The Bath")
+         *    should produce the output
+         *
+         *    Dax has health 50
+         *    Dax is in The Bath
+         *
+         */
+    </script>
+</body>
+
+</html>
