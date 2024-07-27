@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Arguments</title>
+</head>
+
+<body>
+    <script>
+        // Passing a function an object as an argument
+
+        var planet1;
+        var getPlanetInfo;
+        var planet2;
+        var getPlanetInfo2;
+
+        planet1 = {
+            name: "Jupiter",
+            position: 5,
+            type: "Gas Giant",
+            radius: 69911,
+            sizeRank: 1
+        };
+
+        getPlanetInfo = function (planet) {
+            return planet.name + ": planet number " + planet.position;
+        };
+
+        console.log(getPlanetInfo(planet1));
+
+        planet2 = {
+            name: "Mars",
+            position: 4,
+            type: "Red Planet",
+            radius: 70911,
+            sizeRank: 4
+        };
+        
+        getPlanetInfo2 = function (planet2) {
+            return planet2.name + ": planet number " + planet2.position;
+        };
+        console.log(getPlanetInfo2(planet2));
+
+
+
+        /* Further Adventures
+         *
+         * 1) Create a second planet object.
+         *
+         * 2) Use getPlanetInfo to log details of
+         *    the second planet.
+         *
+         * 3) Update the getPlanetInfo function to
+         *    include more information about
+         *    each planet.
+         *
+         */
+    </script>
+</body>
+
+</html>

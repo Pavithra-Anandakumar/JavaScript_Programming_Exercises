@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Arguments</title>
+</head>
+
+<body>
+    <script>
+        // Finding a character with indexOf
+
+        var message = "We choose to go to the Moon!";
+
+        // 1) Find the index of where the word 'go' starts
+        var goIndex = message.indexOf("go");
+        console.log("The word 'go' starts at index: " + goIndex);
+
+        // 2) Use indexOf and substr to display the word 'choose'
+        var chooseIndex = message.indexOf("choose");
+        var chooseWord = message.substr(chooseIndex, 7); // 'choose' has 7 characters
+        console.log("The word 'choose' is: " + chooseWord);
+
+        // 3) Use lastIndexOf to find the index of 'oo' in the word 'Moon'
+        var ooIndex = message.lastIndexOf("oo");
+        console.log("The last occurrence of 'oo' starts at index: " + ooIndex);
+
+
+
+        /* Further Adventures
+         *
+         * 1) Use indexOf to find the index of where the
+         *    word 'go' starts in the message string.
+         *
+         * 2) Use indexOf and substr to display the word
+         *    'choose' from the message string.
+         *
+         * There is also a lastIndexOf string method.
+         *
+         * 3) Use lastIndexOf to find the index of the
+         *    'oo' in the word 'Moon' of the message string.
+         *
+         */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Arguments</title>
+</head>
+
+<body>
+    <script>
+        // A function to create planets
+
+        var buildCar;
+        var getCarInfo;
+        var car1;
+        var car2;
+
+        buildCar = function (make, model, year, type, mileage) {
+            return {
+                make: make,
+                model: model,
+                year: year,
+                type: type,
+                mileage: mileage
+            };
+        };
+
+        getCarInfo = function (car) {
+            return car.make + " " + car.model + " (" + car.year + "): " + car.type + ", " + car.mileage + " miles";
+        };
+
+        car1 = buildCar("Toyota", "Camry", 2020, "Sedan", 15000);
+        car2 = buildCar("Ford", "F-150", 2018, "Truck", 45000);
+
+        console.log(getCarInfo(car1));
+        console.log(getCarInfo(car2));
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Write a similar program to create and
+         *    display objects that represent cars.
+         *
+         */
+    </script>
+</body>
+
+</html>

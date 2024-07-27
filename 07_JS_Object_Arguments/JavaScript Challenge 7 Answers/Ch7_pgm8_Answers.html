@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Arguments</title>
+</head>
+
+<body>
+    <script>
+        // Finding substrings
+
+        var message = "We choose to go to the Moon!";
+
+        // 1) Log specific parts of the message string using substr
+        console.log(message.substr(21, 5)); // Moon!
+        console.log(message.substr(12, 8)); // go to the
+        console.log(message.substr(0, 10)); // We choose
+
+        // 2) Omitting the second argument
+        console.log(message.substr(3)); // choose to go to the Moon!
+
+        // 3) Using negative numbers
+        console.log(message.substr(-6, 5)); // Moon!
+        console.log(message.substr(-15, 7)); // go to the
+        console.log(message.substr(-22, 10)); // We choose
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Use substr to log the following parts of
+         *    the message string to the console:
+         *
+         *    > Moon!
+         *    > go to the
+         *    > We choose
+         *
+         * 2) Investigate what happens if you omit the
+         *    second argument when calling substr.
+         *
+         * 3) What happens if you use negative numbers
+         *    as arguments?
+         *
+         */
+    </script>
+</body>
+
+</html>
