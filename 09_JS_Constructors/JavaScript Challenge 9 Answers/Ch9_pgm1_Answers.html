@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+
+<body>
+    <script>
+        // Using a function to create an object
+        // Function to create a planet object
+        var buildPlanet = function (name, position, type) {
+            var planet = {};
+
+            planet.name = name;
+            planet.position = position;
+            planet.type = type;
+
+            return planet;
+        };
+
+        // Build the first planet
+        var planet1 = buildPlanet(
+            "Jupiter",
+            5,
+            "Gas Giant"
+        );
+
+        // Log details of the first planet
+        console.log(planet1.name);       // Jupiter
+        console.log(planet1.position);   // 5
+        console.log(planet1.type);       // Gas Giant
+
+        // Build the second planet
+        var planet2 = buildPlanet(
+            "Neptune",
+            8,
+            "Ice Giant"
+        );
+
+        // Log details of the second planet
+        console.log(planet2.name);       // Neptune
+        console.log(planet2.type);       // Ice Giant
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Build a second planet,
+         *    using the buildPlanet function.
+         *
+         * 2) Log its name and type.
+         *
+         */
+    </script>
+</body>
+
+</html>

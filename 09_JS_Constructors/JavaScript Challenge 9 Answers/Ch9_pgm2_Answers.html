@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+
+<body>
+    <script>
+        // Adding methods to our constructed object
+        // Function to create a planet object with methods
+        var buildPlanet = function (name, position, type) {
+            var planet = {};
+
+            planet.name = name;
+            planet.position = position;
+            planet.type = type;
+
+            // Method to display planet information
+            planet.showPlanet = function () {
+                var info = planet.name;
+                info += ": planet " + planet.position;
+                info += " - " + planet.type;
+                console.log(info);
+            };
+
+            return planet;
+        };
+
+        // Create the first planet
+        var planet1 = buildPlanet(
+            "Jupiter",
+            5,
+            "Gas Giant"
+        );
+
+        // Show information for the first planet
+        planet1.showPlanet(); // Jupiter: planet 5 - Gas Giant
+
+        // Create the second planet
+        var planet2 = buildPlanet(
+            "Neptune",
+            8,
+            "Ice Giant"
+        );
+
+        // Show information for the second planet
+        planet2.showPlanet(); // Neptune: planet 8 - Ice Giant
+
+
+        /* Further Adventures
+         *
+         * 1) Create a second planet.
+         *    Use the buildPlanet function.
+         *
+         * 2) Call the showPlanet method on your
+         *    new planet.
+         *
+         */
+    </script>
+</body>
+
+</html>

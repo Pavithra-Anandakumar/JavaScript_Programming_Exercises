@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+
+<body>
+    <script>
+        // A Player constructor function
+        // Adding a dropItem method to the Player constructor
+
+        var Player = function (name, health) {
+            var newLine = spacer.newLine();
+
+            this.name = name;
+            this.health = health;
+            this.items = [];
+            this.place = null;
+
+            this.addItem = function (item) {
+                this.items.push(item);
+            };
+
+            this.dropItem = function () {
+                if (this.items.length > 0) {
+                    this.items.pop(); // Remove the last item
+                }
+            };
+
+            this.getNameInfo = function () {
+                return this.name;
+            };
+
+            this.getHealthInfo = function () {
+                return this.name + " has health " + this.health;
+            };
+
+            this.getPlaceInfo = function () {
+                return this.name + " is in " + (this.place ? this.place.title : "no place");
+            };
+
+            this.getItemsInfo = function () {
+                var itemsString = "Items:" + newLine;
+
+                this.items.forEach(function (item, i) {
+                    itemsString += "   - " + item + newLine;
+                });
+
+                return itemsString;
+            };
+
+            this.getInfo = function (character) {
+                var place = this.getPlaceInfo();
+                var health = this.getHealthInfo();
+                var longest = Math.max(place.length, health.length) + 4;
+
+                var info = spacer.box(this.getNameInfo(), longest, character);
+                info += spacer.wrap(place, longest, character);
+                info += spacer.newLine() + spacer.wrap(health, longest, character);
+                info += newLine + spacer.line(longest, character);
+
+                info += newLine;
+                info += "  " + this.getItemsInfo();
+                info += newLine;
+                info += spacer.line(longest, character);
+                info += newLine;
+
+                return info;
+            };
+
+            this.showInfo = function (character) {
+                console.log(this.getInfo(character));
+            };
+        };
+
+        // Testing the Player constructor with multiple players
+
+        var library = new Place(
+            "The Old Library",
+            "You are in a library. Dusty books line the walls."
+        );
+
+        var player1 = new Player("Kandra", 50);
+        player1.place = library;
+        player1.addItem("a rusty key");
+        player1.addItem("The Sword of Doom");
+
+        var player2 = new Player("Jahver", 75);
+        player2.place = library;
+        player2.addItem("a golden ring");
+        player2.addItem("an ancient scroll");
+
+        var player3 = new Player("Kandra", 90);
+        player3.place = library;
+        player3.addItem("a magical staff");
+        player3.addItem("a silver coin");
+
+        // Display player info
+        player1.showInfo("=");
+        player2.showInfo("*");
+        player3.showInfo("#");
+
+        // Drop the last item from each player and display their info again
+        player1.dropItem();
+        player2.dropItem();
+        player3.dropItem();
+
+        console.log("After dropping last item:");
+        player1.showInfo("=");
+        player2.showInfo("*");
+        player3.showInfo("#");
+
+        /* Further Adventures
+         *
+         * 1) Test out the constructor by
+         *    creating a couple of Player objects.
+         *
+         * 2) Add items for each player.
+         *
+         * 3) Display each player's info.
+         *
+         * 4) Write a method to drop the last
+         *    item in a player's items array.
+         *
+         */
+    </script>
+</body>
+
+</html>
