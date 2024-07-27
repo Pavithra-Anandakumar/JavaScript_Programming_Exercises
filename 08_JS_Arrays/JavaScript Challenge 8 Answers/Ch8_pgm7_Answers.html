@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        // Iterating over an array with forEach
+        var items;
+        var showInfo;
+        var totalLetters;
+
+        items = [
+            "The Pyramids",
+            "The Grand Canyon",
+            "Bondi Beach"
+        ];
+
+        // Adding extra items using push and square brackets
+        items.push("Mount Everest");
+        items.push("The Great Wall of China");
+        items[5] = "Machu Picchu";
+
+        showInfo = function (itemToShow) {
+            console.log(itemToShow + " (" + itemToShow.length + " letters)");
+        };
+
+        // Iterate over the items array and show information for each item
+        items.forEach(showInfo);
+
+        totalLetters = function (itemsArray) {
+            var total = 0;
+            itemsArray.forEach(function (item) {
+                total += item.length;
+            });
+            return total;
+        };
+
+        // Calculate and display the total number of letters in the items array
+        var totalLettersCount = totalLetters(items);
+        console.log("Total number of letters in the items array: " + totalLettersCount);
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Add a few extra items to the array, some
+         *    using push and some using square brackets.
+         *    Run the program.
+         *
+         * Strings also have a length property
+         * which gives the number of characters in the string.
+         *
+         * 2) Update the showInfo function to also
+         *    display the number of letters in each item.
+         *
+         * 3) Write a new function that finds the total
+         *    number of letters of the elements in
+         *    the items array.
+         *
+         */
+    </script>
+</body>
+
+</html>

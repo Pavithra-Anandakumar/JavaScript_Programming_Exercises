@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        var getVisitorReport = function (visitorArray, dayInWeek) {
+            var days = [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ];
+            var index = dayInWeek - 1;
+            var visitorReport;
+
+            visitorReport = "There were ";
+            visitorReport += visitorArray[index];
+            visitorReport += " visitors ";
+            visitorReport += "on " + days[index];
+
+            return visitorReport;
+        };
+
+        // Updated to include Saturday and Sunday
+        var visitors = [354, 132, 210, 221, 481, 150, 100];
+
+        // Run the report for Friday
+        var reportFriday = getVisitorReport(visitors, 5);
+        console.log(reportFriday); // Outputs the report for Friday
+
+        // 3) Function for monthly data
+        var getMonthlyVisitorReport = function (monthArray, week, dayInWeek) {
+            if (week < 1 || week > monthArray.length || dayInWeek < 1 || dayInWeek > 7) {
+                return "Invalid week or day.";
+            }
+
+            var weekArray = monthArray[week - 1];
+            return getVisitorReport(weekArray, dayInWeek);
+        };
+
+        // 4) Create weekly arrays and a month array
+        var week1 = [354, 132, 210, 221, 481, 150, 100];
+        var week2 = [300, 250, 200, 350, 400, 250, 150];
+        var week3 = [320, 180, 220, 330, 450, 180, 120];
+        var week4 = [310, 170, 230, 340, 460, 160, 130];
+
+        var month = [week1, week2, week3, week4];
+
+        // Test the function for different weeks and days
+        console.log(getMonthlyVisitorReport(month, 1, 5)); // Week 1, Friday
+        console.log(getMonthlyVisitorReport(month, 2, 7)); // Week 2, Sunday
+        console.log(getMonthlyVisitorReport(month, 3, 3)); // Week 3, Wednesday
+        console.log(getMonthlyVisitorReport(month, 4, 1)); // Week 4, Monday
+
+    </script>
+</body>
+
+</html>

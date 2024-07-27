@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        // Displaying a multiple choice question
+        // Function to display a multiple choice question
+        var displayQuestion = function (questionAndAnswer) {
+            var options = ["A", "B", "C", "D", "E"];
+
+            console.log(questionAndAnswer.question);
+
+            questionAndAnswer.answers.forEach(function (answer, i) {
+                console.log(options[i] + " - " + answer);
+            });
+        };
+
+        // Question objects
+        var question1 = {
+            question: "What is the capital of France?",
+            answers: [
+                "Bordeaux",
+                "F",
+                "Paris",
+                "Brussels"
+            ],
+            correctAnswer: "Paris"
+        };
+
+        var question2 = {
+            question: "What is the largest planet in our solar system?",
+            answers: [
+                "Earth",
+                "Jupiter",
+                "Mars",
+                "Saturn"
+            ],
+            correctAnswer: "Jupiter"
+        };
+
+        var question3 = {
+            question: "Who wrote 'To Kill a Mockingbird'?",
+            answers: [
+                "Harper Lee",
+                "Ernest Hemingway",
+                "Mark Twain",
+                "F. Scott Fitzgerald"
+            ],
+            correctAnswer: "Harper Lee"
+        };
+
+        // Array of question objects
+        var questions = [question1, question2, question3];
+
+        // Display each question
+        questions.forEach(displayQuestion);
+
+        // Example to display a particular question
+        // Use this command in the console prompt
+        // displayQuestion(questions[1]); // Displays the second question
+
+
+        /* Further Adventures
+         *
+         * 1) Add two more question objects.
+         *
+         * 2) Create an array with your question objects.
+         *
+         * 3) Use forEach to call displayQuestion on
+         *    each of your questions.
+         *
+         * 4) Can you execute a command at the prompt
+         *    to display a particular question?
+         */
+    </script>
+</body>
+
+</html>

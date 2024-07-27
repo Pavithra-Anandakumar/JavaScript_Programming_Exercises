@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        // Using a variable as an index
+
+        var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+        var dayInWeek = 4;
+
+        console.log(days[dayInWeek]); // Displays the day at index 4 (Friday)
+        console.log(days[dayInWeek - 1]); // Displays the day at index 3 (Thursday)
+
+        // 1) Change the value of the dayInWeek variable
+        dayInWeek = 2;
+        console.log(days[dayInWeek]); // Displays the day at index 2 (Wednesday)
+
+        // 2) Write a function that accepts a number for the day of the week
+        //    and returns the day as a string.
+        var getDay = function (dayIndex) {
+            if (dayIndex >= 0 && dayIndex < days.length) {
+                return days[dayIndex];
+            } else {
+                return "Invalid day index";
+            }
+        };
+
+        // 3) Call the function with 4 and log the returned value
+        var selectedDay = getDay(4);
+        console.log("The day for index 4 is: " + selectedDay);
+
+
+
+
+        /* Further Adventures
+         *
+         * 1) Change the value of the dayInWeek variable
+         *    to display a different day.
+         *
+         * 2) Write a function that accepts a number for the
+         *    day of the week to be displayed and returns
+         *    the day as a string. Assign the function to
+         *    a getDay variable.
+         *
+         * 3) Call your function, passing it 4 as the day
+         *    of the week, and log the value it returns.
+         *
+         */
+    </script>
+</body>
+
+</html>

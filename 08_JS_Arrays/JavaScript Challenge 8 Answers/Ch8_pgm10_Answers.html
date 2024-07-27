@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        // Using the arguments passed by forEach - compact
+
+        // Step 1: Create an array of rectangle objects
+        var rectangles = [
+            { length: 5, width: 2 },
+            { length: 10, width: 4 },
+            { length: 6, width: 3 }
+        ];
+
+        // Step 2: Define the assignArea function
+        var assignArea = function (rectangle) {
+            rectangle.area = rectangle.length * rectangle.width;
+        };
+
+        // Step 3: Define the showInfo function
+        var showInfo = function (rectangle) {
+            console.log("Rectangle with length " + rectangle.length +
+                ", width " + rectangle.width +
+                " has an area of " + rectangle.area);
+        };
+
+        // Step 4: Use forEach and the functions
+        rectangles.forEach(function (rectangle) {
+            assignArea(rectangle);
+            showInfo(rectangle);
+        });
+
+
+
+        /* Further Adventures
+         *
+         * 1) Create an array of rectangle objects.
+         *    Each rectangle should have a length
+         *    property and a width property.
+         *
+         * 2) Define an assignArea function that
+         *    takes a rectangle as an argument and
+         *    assigns an area property holding
+         *    the area of the rectangle.
+         *
+         * 3) Define a showInfo function that
+         *    takes a rectangle as an argument and
+         *    displays its properties on the console.
+         *
+         * 4) Use forEach and your two functions
+         *    to display info about each of
+         *    the rectangles in the array.
+         *
+         */
+    </script>
+</body>
+
+</html>
