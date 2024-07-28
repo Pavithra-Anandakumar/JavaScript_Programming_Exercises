@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraphs Manipulation</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+    <p>This is the third paragraph.</p>
+    <p>This is the fourth paragraph.</p>
+
+    <script>
+        // 1
+        const firstParagraph = document.querySelector('p');
+        console.log(firstParagraph.textContent);
+
+        // 2. Get each paragraph using document.querySelector('#id') and by their id
+         
+
+        // 3. 
+        const allParagraphs = document.querySelectorAll('p');
+
+        // 4. 
+        allParagraphs.forEach(paragraph => console.log(paragraph.textContent));
+
+        // 5.
+        allParagraphs[3].textContent = 'Fourth Paragraph';
+
+        // 6. 
+        allParagraphs.forEach((paragraph, index) => {
+            paragraph.id = `para${index + 1}`;
+            paragraph.classList.add('paragraph', `para-${index + 1}`);
+        });
+
+        // Level 2
+
+        // 1.  
+        allParagraphs.forEach(paragraph => {
+            paragraph.style.color = 'blue';
+            paragraph.style.backgroundColor = 'lightgray';
+            paragraph.style.border = '1px solid black';
+            paragraph.style.fontSize = '18px';
+            paragraph.style.fontFamily = 'Arial, sans-serif';
+        });
+
+        // 2.
+        allParagraphs.forEach((paragraph, index) => {
+            if (index === 0 || index === 2) {
+                paragraph.style.color = 'green';
+            } else if (index === 1 || index === 3) {
+                paragraph.style.color = 'red';
+            }
+        });
+
+        // 3.
+        allParagraphs.forEach((paragraph, index) => {
+            paragraph.textContent = `Paragraph ${index + 1}`;
+            paragraph.id = `para${index + 1}`;
+            paragraph.classList.add('paragraph', `para-${index + 1}`);
+        });
+    </script>
+</body>
+</html>

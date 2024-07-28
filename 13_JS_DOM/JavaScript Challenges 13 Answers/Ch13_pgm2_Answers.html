@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Challenges in 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            padding: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>JavaScript Challenges in <span id="year">2024</span></h1>
+        <h2 id="date-time"></h2>
+        <ul id="challenges">
+            <li class="completed">30DaysOfPython Challenge Done</li>
+            <li class="ongoing">30DaysOfJavaScript Challenge Ongoing</li>
+            <li class="coming">30DaysOfReact Challenge Coming</li>
+            <li class="coming">30DaysOfFullStack Challenge Coming</li>
+            <li class="coming">30DaysOfDataAnalysis Challenge Coming</li>
+            <li class="coming">30DaysOfReactNative Challenge Coming</li>
+            <li class="coming">30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+    </div>
+
+    <script>
+        // Helper function to get a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Change year color every second
+        const yearElement = document.getElementById('year');
+        setInterval(() => {
+            yearElement.style.color = getRandomColor();
+        }, 1000);
+
+        // Change date and time every second
+        const dateTimeElement = document.getElementById('date-time');
+        setInterval(() => {
+            const now = new Date();
+            dateTimeElement.textContent = now.toLocaleString();
+            dateTimeElement.style.backgroundColor = getRandomColor();
+        }, 1000);
+
+        // Apply styles based on challenge status
+        const challenges = document.getElementById('challenges').children;
+        for (let challenge of challenges) {
+            if (challenge.classList.contains('completed')) {
+                challenge.style.backgroundColor = 'green';
+                challenge.style.color = 'white';
+            } else if (challenge.classList.contains('ongoing')) {
+                challenge.style.backgroundColor = 'yellow';
+                challenge.style.color = 'black';
+            } else if (challenge.classList.contains('coming')) {
+                challenge.style.backgroundColor = 'red';
+                challenge.style.color = 'white';
+            }
+        }
+    </script>
+</body>
+
+</html>
