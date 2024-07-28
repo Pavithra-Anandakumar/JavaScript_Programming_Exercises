@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher order Functions</title>
+</head>
+
+<body>
+    <script>
+        const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand', 'Iceland', 'Pakistan', 'Afghanistan'];
+        const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook'];
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const products = [
+            { product: 'banana', price: 3 },
+            { product: 'mango', price: 6 },
+            { product: 'potato', price: ' ' },
+            { product: 'avocado', price: 8 },
+            { product: 'coffee', price: 10 },
+            { product: 'tea', price: '' },
+        ];
+
+        // Task 1: Total price of products using map, filter, and reduce
+        const totalFilteredPrice = products
+            .map(product => {
+                const price = parseFloat(product.price) || 0;
+                return { ...product, price };
+            })
+            .filter(product => product.price > 0)
+            .reduce((acc, curr) => acc + curr.price, 0);
+        console.log('Total Filtered Price:', totalFilteredPrice);
+
+        // Task 2: Total price of products using only reduce
+        const totalPrice = products.reduce((acc, curr) => {
+            const price = parseFloat(curr.price) || 0;
+            return acc + price;
+        }, 0);
+        console.log('Total Price:', totalPrice);
+
+        // Task 3: Categorize countries with common patterns
+        const categorizeCountries = (pattern) => {
+            return countries.filter(country => country.toLowerCase().includes(pattern.toLowerCase()));
+        };
+        console.log('Countries containing "land":', categorizeCountries('land'));
+        console.log('Countries containing "stan":', categorizeCountries('stan'));
+
+        // Task 4: Count starting letters in country names
+        const countStartingLetters = (countries) => {
+            const letterCount = {};
+            countries.forEach(country => {
+                const firstLetter = country[0].toUpperCase();
+                letterCount[firstLetter] = (letterCount[firstLetter] || 0) + 1;
+            });
+            return Object.keys(letterCount).map(letter => ({ letter, count: letterCount[letter] }));
+        };
+        console.log('Starting Letters Count:', countStartingLetters(countries));
+
+        // Task 5: Get first ten countries
+        const getFirstTenCountries = () => countries.slice(0, 10);
+        console.log('First Ten Countries:', getFirstTenCountries());
+
+        // Task 6: Get last ten countries
+        const getLastTenCountries = () => countries.slice(-10);
+        console.log('Last Ten Countries:', getLastTenCountries());
+
+        // Task 7: Find the most common initial letter in country names
+        const findMostCommonInitial = (countries) => {
+            const letterCount = {};
+            countries.forEach(country => {
+                const firstLetter = country[0].toUpperCase();
+                letterCount[firstLetter] = (letterCount[firstLetter] || 0) + 1;
+            });
+            let maxCount = 0;
+            let mostCommonLetter = '';
+            for (const [letter, count] of Object.entries(letterCount)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    mostCommonLetter = letter;
+                }
+            }
+            return mostCommonLetter;
+        };
+        console.log('Most Common Initial Letter:', findMostCommonInitial(countries));
+
+    </script>
+</body>
+
+</html>

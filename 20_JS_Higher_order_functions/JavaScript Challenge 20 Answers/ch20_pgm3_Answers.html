@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher order Functions</title>
+</head>
+
+<body>
+    <script>
+        // Sample countries data structure
+        const countries_data = [
+            {
+                name: "China",
+                capital: "Beijing",
+                population: 1377422166,
+                languages: ["Mandarin"]
+            },
+            {
+                name: "India",
+                capital: "New Delhi",
+                population: 1295210000,
+                languages: ["Hindi", "English"]
+            },
+            {
+                name: "United States of America",
+                capital: "Washington, D.C.",
+                population: 323947000,
+                languages: ["English"]
+            },
+            {
+                name: "Indonesia",
+                capital: "Jakarta",
+                population: 258705000,
+                languages: ["Indonesian"]
+            },
+            // Add more countries as needed
+        ];
+
+        // Function to sort countries by name
+        const sortByName = (countries) => {
+            return countries.slice().sort((a, b) => a.name.localeCompare(b.name));
+        };
+
+        // Function to sort countries by capital
+        const sortByCapital = (countries) => {
+            return countries.slice().sort((a, b) => a.capital.localeCompare(b.capital));
+        };
+
+        // Function to sort countries by population
+        const sortByPopulation = (countries) => {
+            return countries.slice().sort((a, b) => b.population - a.population);
+        };
+
+        // Function to find the most spoken languages
+        const mostSpokenLanguages = (countries, topN) => {
+            const languageMap = new Map();
+
+            countries.forEach(country => {
+                country.languages.forEach(language => {
+                    languageMap.set(language, (languageMap.get(language) || 0) + 1);
+                });
+            });
+
+            const sortedLanguages = Array.from(languageMap.entries())
+                .sort((a, b) => b[1] - a[1])
+                .map(([language, count]) => ({ country: language, count }))
+                .slice(0, topN);
+
+            return sortedLanguages;
+        };
+
+        // Function to find the most populated countries
+        const mostPopulatedCountries = (countries, topN) => {
+            return countries.slice().sort((a, b) => b.population - a.population).slice(0, topN);
+        };
+
+        // Sample outputs
+        console.log("Countries sorted by name:", sortByName(countries_data));
+        console.log("Countries sorted by capital:", sortByCapital(countries_data));
+        console.log("Countries sorted by population:", sortByPopulation(countries_data));
+
+        console.log("10 most spoken languages:", mostSpokenLanguages(countries_data, 10));
+        console.log("3 most spoken languages:", mostSpokenLanguages(countries_data, 3));
+
+        console.log("10 most populated countries:", mostPopulatedCountries(countries_data, 10));
+        console.log("3 most populated countries:", mostPopulatedCountries(countries_data, 3));
+
+    </script>
+</body>
+
+</html>
