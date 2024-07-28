@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expressions</title>
+</head>
+
+<body>
+    <script>
+        function tenMostFrequentWords(paragraph, num = 10) {
+            // Normalize and remove punctuation
+            const normalizedText = paragraph.toLowerCase().replace(/[^\w\s]/g, '');
+            // Split the text into words
+            const words = normalizedText.split(/\s+/);
+
+            // Count word frequencies
+            const wordCounts = {};
+            words.forEach(word => {
+                wordCounts[word] = (wordCounts[word] || 0) + 1;
+            });
+
+            // Convert to array and sort by frequency
+            const sortedWordCounts = Object.entries(wordCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, num);
+
+            // Format the result as an array of objects
+            return sortedWordCounts.map(([word, count]) => ({ word, count }));
+        }
+
+        const paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
+
+        console.log(tenMostFrequentWords(paragraph));
+        // Output: [{word:'love', count:6}, {word:'you', count:5}, {word:'can', count:3}, ...]
+
+        console.log(tenMostFrequentWords(paragraph, 10));
+        // Output: [{word:'love', count:6}, {word:'you', count:5}, {word:'can', count:3}, ...]
+
+    </script>
+</body>
+
+</html>
