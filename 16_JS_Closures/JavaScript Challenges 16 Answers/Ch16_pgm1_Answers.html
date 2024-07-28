@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+
+<body>
+    <script>
+        // Level 1: Closure with One Inner Function
+        function singleInnerFunction() {
+            let outerVariable = 'I am an outer variable';
+
+            function innerFunction() {
+                console.log(outerVariable);
+            }
+
+            return innerFunction;
+        }
+
+        const singleClosure = singleInnerFunction();
+        singleClosure(); // Output: "I am an outer variable"
+
+        // Level 2: Closure with Three Inner Functions
+        function counterFunction() {
+            let count = 0;
+
+            function increment() {
+                count++;
+                console.log(`Incremented: ${count}`);
+            }
+
+            function decrement() {
+                count--;
+                console.log(`Decremented: ${count}`);
+            }
+
+            function reset() {
+                count = 0;
+                console.log(`Reset: ${count}`);
+            }
+
+            return {
+                increment,
+                decrement,
+                reset,
+            };
+        }
+
+        const counter = counterFunction();
+        counter.increment(); // Output: "Incremented: 1"
+        counter.increment(); // Output: "Incremented: 2"
+        counter.decrement(); // Output: "Decremented: 1"
+        counter.reset();     // Output: "Reset: 0"
+
+        // Level 3: personAccount with Inner Functions
+        function personAccount(firstname, lastname) {
+            let incomes = [];
+            let expenses = [];
+
+            function addIncome(description, amount) {
+                incomes.push({ description, amount });
+            }
+
+            function addExpense(description, amount) {
+                expenses.push({ description, amount });
+            }
+
+            function totalIncome() {
+                return incomes.reduce((total, income) => total + income.amount, 0);
+            }
+
+            function totalExpense() {
+                return expenses.reduce((total, expense) => total + expense.amount, 0);
+            }
+
+            function accountBalance() {
+                return totalIncome() - totalExpense();
+            }
+
+            function accountInfo() {
+                return `${firstname} ${lastname} has a balance of ${accountBalance()}.\nTotal Income: ${totalIncome()}\nTotal Expenses: ${totalExpense()}`;
+            }
+
+            return {
+                addIncome,
+                addExpense,
+                totalIncome,
+                totalExpense,
+                accountBalance,
+                accountInfo,
+            };
+        }
+
+        const myAccount = personAccount('John', 'Doe');
+        myAccount.addIncome('Salary', 3000);
+        myAccount.addIncome('Freelance', 1200);
+        myAccount.addExpense('Rent', 1000);
+        myAccount.addExpense('Groceries', 300);
+
+        console.log(myAccount.accountInfo());
+        // Output: 
+        // "John Doe has a balance of 2900.
+        // Total Income: 4200
+        // Total Expenses: 1300"
+
+    </script>
+</body>
+
+</html>
