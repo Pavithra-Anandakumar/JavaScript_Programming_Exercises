@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage</title>
+</head>
+
+<body>
+    <script>
+        // Level 1
+
+        // Store your first name, last name, age, country, and city in your browser localStorage.
+        localStorage.setItem('firstName', 'John');
+        localStorage.setItem('lastName', 'Doe');
+        localStorage.setItem('age', '30');
+        localStorage.setItem('country', 'USA');
+        localStorage.setItem('city', 'New York');
+
+        // Level 2
+
+        // Create a student object and store it in your browser localStorage.
+        const student = {
+            firstName: 'Jane',
+            lastName: 'Smith',
+            age: 22,
+            skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+            country: 'Canada',
+            enrolled: true
+        };
+
+        localStorage.setItem('student', JSON.stringify(student));
+
+        // Level 3
+
+        // Create an object called personAccount with properties and methods.
+        const personAccount = {
+            firstName: 'Alice',
+            lastName: 'Johnson',
+            incomes: new Set([
+                { description: 'Salary', amount: 5000 },
+                { description: 'Freelance', amount: 2000 },
+                { description: 'Investments', amount: 1000 }
+            ]),
+            expenses: new Set([
+                { description: 'Rent', amount: 1200 },
+                { description: 'Groceries', amount: 300 },
+                { description: 'Utilities', amount: 150 }
+            ]),
+            totalIncome() {
+                let total = 0;
+                this.incomes.forEach(income => total += income.amount);
+                return total;
+            },
+            totalExpense() {
+                let total = 0;
+                this.expenses.forEach(expense => total += expense.amount);
+                return total;
+            },
+            accountInfo() {
+                return `Name: ${this.firstName} ${this.lastName}\nTotal Income: $${this.totalIncome()}\nTotal Expenses: $${this.totalExpense()}\nAccount Balance: $${this.accountBalance()}`;
+            },
+            addIncome(description, amount) {
+                this.incomes.add({ description, amount });
+            },
+            addExpense(description, amount) {
+                this.expenses.add({ description, amount });
+            },
+            accountBalance() {
+                return this.totalIncome() - this.totalExpense();
+            }
+        };
+
+        localStorage.setItem('personAccount', JSON.stringify(personAccount));
+
+        // Retrieving and displaying data from localStorage
+        console.log('Level 1 data stored in localStorage:');
+        console.log(localStorage.getItem('firstName')); // John
+        console.log(localStorage.getItem('lastName'));  // Doe
+        console.log(localStorage.getItem('age'));       // 30
+        console.log(localStorage.getItem('country'));   // USA
+        console.log(localStorage.getItem('city'));      // New York
+
+        console.log('Level 2 student data stored in localStorage:');
+        console.log(JSON.parse(localStorage.getItem('student')));
+        // Output: {firstName: 'Jane', lastName: 'Smith', age: 22, skills: Array(4), country: 'Canada', enrolled: true}
+
+        console.log('Level 3 personAccount data stored in localStorage:');
+        const storedPersonAccount = JSON.parse(localStorage.getItem('personAccount'));
+        console.log(storedPersonAccount);
+        console.log('Account Info:', storedPersonAccount.accountInfo()); // Show account info
+
+    </script>
+</body>
+
+</html>
