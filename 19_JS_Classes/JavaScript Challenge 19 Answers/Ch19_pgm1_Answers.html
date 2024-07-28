@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Classes</title>
+</head>
+
+<body>
+    <script>
+        // Level 1
+
+        // Animal class
+        class Animal {
+            constructor(name, age, color, legs) {
+                this.name = name;
+                this.age = age;
+                this.color = color;
+                this.legs = legs;
+            }
+
+            sound() {
+                return 'This animal makes a sound.';
+            }
+
+            getInfo() {
+                return `Name: ${this.name}, Age: ${this.age}, Color: ${this.color}, Legs: ${this.legs}`;
+            }
+        }
+
+        // Dog class extends Animal
+        class Dog extends Animal {
+            constructor(name, age, color, legs, breed) {
+                super(name, age, color, legs);
+                this.breed = breed;
+            }
+
+            sound() {
+                return 'Woof Woof!';
+            }
+
+            getInfo() {
+                return `${super.getInfo()}, Breed: ${this.breed}`;
+            }
+        }
+
+        // Cat class extends Animal
+        class Cat extends Animal {
+            constructor(name, age, color, legs, isIndoor) {
+                super(name, age, color, legs);
+                this.isIndoor = isIndoor;
+            }
+
+            sound() {
+                return 'Meow!';
+            }
+
+            getInfo() {
+                return `${super.getInfo()}, Indoor: ${this.isIndoor}`;
+            }
+        }
+
+        // Level 2
+        // Overriding the method in the Dog and Cat classes
+        const dog = new Dog('Buddy', 4, 'Brown', 4, 'Golden Retriever');
+        const cat = new Cat('Whiskers', 2, 'Black', 4, true);
+
+        console.log(dog.sound()); // Woof Woof!
+        console.log(dog.getInfo()); // Name: Buddy, Age: 4, Color: Brown, Legs: 4, Breed: Golden Retriever
+        console.log(cat.sound()); // Meow!
+        console.log(cat.getInfo()); // Name: Whiskers, Age: 2, Color: Black, Legs: 4, Indoor: true
+
+        // Level 3
+        // Statistics class for statistical calculations
+        class Statistics {
+            constructor(data) {
+                this.data = data;
+            }
+
+            count() {
+                return this.data.length;
+            }
+
+            sum() {
+                return this.data.reduce((acc, curr) => acc + curr, 0);
+            }
+
+            min() {
+                return Math.min(...this.data);
+            }
+
+            max() {
+                return Math.max(...this.data);
+            }
+
+            range() {
+                return this.max() - this.min();
+            }
+
+            mean() {
+                return this.sum() / this.count();
+            }
+
+            median() {
+                const sorted = this.data.sort((a, b) => a - b);
+                const mid = Math.floor(sorted.length / 2);
+                return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+            }
+
+            mode() {
+                const freq = {};
+                this.data.forEach(num => {
+                    freq[num] = (freq[num] || 0) + 1;
+                });
+                const maxFreq = Math.max(...Object.values(freq));
+                const modes = Object.keys(freq).filter(key => freq[key] === maxFreq);
+                return { mode: modes, count: maxFreq };
+            }
+
+            var() {
+                const mean = this.mean();
+                return this.data.reduce((acc, curr) => acc + Math.pow(curr - mean, 2), 0) / this.count();
+            }
+
+            std() {
+                return Math.sqrt(this.var());
+            }
+
+            freqDist() {
+                const freq = {};
+                this.data.forEach(num => {
+                    freq[num] = (freq[num] || 0) + 1;
+                });
+                const totalCount = this.count();
+                return Object.keys(freq).map(key => [(freq[key] / totalCount) * 100, Number(key)]);
+            }
+        }
+
+        // Sample data
+        const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26];
+
+        const statistics = new Statistics(ages);
+        console.log('Count:', statistics.count()); // 25
+        console.log('Sum:', statistics.sum()); // 744
+        console.log('Min:', statistics.min()); // 24
+        console.log('Max:', statistics.max()); // 38
+        console.log('Range:', statistics.range()); // 14
+        console.log('Mean:', statistics.mean()); // 29.76
+        console.log('Median:', statistics.median()); // 27
+        console.log('Mode:', statistics.mode()); // { mode: [ '26' ], count: 5 }
+        console.log('Variance:', statistics.var()); // 17.52
+        console.log('Standard Deviation:', statistics.std()); // 4.18
+        console.log('Frequency Distribution:', statistics.freqDist()); // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+
+    </script>
+</body>
+
+</html>
