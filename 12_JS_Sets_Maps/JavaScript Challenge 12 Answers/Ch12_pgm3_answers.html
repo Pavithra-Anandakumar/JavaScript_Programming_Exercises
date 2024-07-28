@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets and maps</title>
+</head>
+
+<body>
+    <script>
+        //         const a = [4, 5, 8, 9]
+        // const b = [3, 4, 5, 7]
+        // const countries = ['Finland', 'Sweden', 'Norway']
+
+        // How many languages are there in the countries object file.
+
+        // *** Use the countries data to find the 10 most spoken languages:
+
+
+        //    // Your output should look like this
+        //    console.log(mostSpokenLanguages(countries, 10))
+        //    [
+        //      { English: 91 },
+        //      { French: 45 },
+        //      { Arabic: 25 },
+        //      { Spanish: 24 },
+        //      { Russian: 9 },
+        //      { Portuguese: 9 },
+        //      { Dutch: 8 },
+        //      { German: 7 },
+        //      { Chinese: 5 },
+        //      { Swahili: 4 },
+        //      { Serbian: 4 }
+        //    ]
+
+        //   // Your output should look like this
+        //   console.log(mostSpokenLanguages(countries, 3))
+        //   [
+        //   {English:91},
+        //   {French:45},
+        //   {Arabic:25}
+        //   ]
+        const url = 'https://restcountries.com/v2/all';
+
+        // Fetch data from the API
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const countries = await response.json();
+
+                // Extract languages and count their occurrences
+                const languageCounts = countries.reduce((acc, country) => {
+                    country.languages.forEach(language => {
+                        if (acc[language.name]) {
+                            acc[language.name]++;
+                        } else {
+                            acc[language.name] = 1;
+                        }
+                    });
+                    return acc;
+                }, {});
+
+                // Convert the language count object to an array of objects
+                const sortedLanguages = Object.entries(languageCounts)
+                    .map(([language, count]) => ({ [language]: count }))
+                    .sort((a, b) => Object.values(b)[0] - Object.values(a)[0]);
+
+                console.log('Total languages:', Object.keys(languageCounts).length);
+                console.log('Most spoken languages (Top 10):', sortedLanguages.slice(0, 10));
+                console.log('Most spoken languages (Top 3):', sortedLanguages.slice(0, 3));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+
+    </script>
+</body>
+
+</html>

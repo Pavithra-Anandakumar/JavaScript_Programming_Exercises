@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets and Maps</title>
+</head>
+
+<body>
+    <script>
+
+        // create an empty set
+        // Create a set containing 0 to 10 using loop
+        // Remove an element from a set
+        // Clear a set
+        // Create a set of 5 string elements from array
+        // Create a map of countries and number of characters of a country
+        // 1. Create an empty set
+        const emptySet = new Set();
+        console.log('Empty Set:', emptySet);
+
+        // 2. Create a set containing numbers from 0 to 10 using a loop
+        const numbersSet = new Set();
+        for (let i = 0; i <= 10; i++) {
+            numbersSet.add(i);
+        }
+        console.log('Numbers Set:', numbersSet);
+
+        // 3. Remove an element from the set
+        numbersSet.delete(5);
+        console.log('After removing 5:', numbersSet);
+
+        // 4. Clear the set
+        numbersSet.clear();
+        console.log('After clearing:', numbersSet);
+
+        // 5. Create a set of 5 string elements from an array
+        const stringArray = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+        const stringSet = new Set(stringArray);
+        console.log('String Set:', stringSet);
+
+        // 6. Create a map of countries and the number of characters in the country name
+        const countries = ['Finland', 'Sweden', 'Norway'];
+        const countryMap = new Map();
+
+        countries.forEach(country => {
+            countryMap.set(country, country.length);
+        });
+
+        console.log('Country Map:');
+        countryMap.forEach((length, country) => {
+            console.log(`${country}: ${length} characters`);
+        });
+
+    </script>
+</body>
+
+</html>
